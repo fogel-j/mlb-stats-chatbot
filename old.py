@@ -39,6 +39,7 @@ You are a AI assistant retrieving infomation from a baseball API based on this d
 
 {{baseball_api_doc}}
 
+Based on the user's query, do you need to call the API? Simply state 'Yes' if you need to. Otherwise, give an answer based on the user's question.
 
 Query:{{human_input}}"""
 CONVERSATION_PROMPT = PromptTemplate(input_variables=['human_input','baseball_api_doc','history'], template=CONVERSATION_TEMPLATE)
@@ -50,11 +51,11 @@ convo_chain = LLMChain(llm=clarifai_llm, prompt=CONVERSATION_PROMPT, verbose=Tru
 
 api_agent_chain = APIChain.from_llm_and_api_docs(clarifai_llm, baseball_api_doc, verbose=True, api_url_prompt=MLB_URL_PROMPT)
 
-human_input = "What's one operations that can be performed with the API?"
-convo_chain.predict(human_input=human_input, baseball_api_doc=baseball_api_doc)
-# api_agent_chain.run("What operations can be performed by this chatbot?")
-memory_test = "What was my previous question?"
-convo_chain.predict(human_input=memory_test, baseball_api_doc=baseball_api_doc)
+human_input = "What is Adley Rustchman's batting average?"
+convo_response = convo_chain.predict(human_input=human_input, baseball_api_doc=baseball_api_doc)
+
+if convo_response == 'Yes':
+    api_agent_chain.run(human_input)
 
 
 

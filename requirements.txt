@@ -1,8 +1,0 @@
-langchain
-clarifai
-Pillow
-tiktoken
-llama-index
-llama-hub
-jsonschema
-plugnplai

@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "mlb-stats-chatbot"
+version = "0.1.0"
+description = ""
+authors = ["Joe Fogelman <joe.fogelman9@gmail>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+langchain = {git = "https://github.com/fogel-j/langchain.git"}
+clarifai = "^9.8.1"
+pillow = "^10.0.1"
+tiktoken = "^0.5.1"
+jsonschema = "^4.19.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

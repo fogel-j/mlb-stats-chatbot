@@ -10,7 +10,7 @@ APP_ID = 'chat-completion'
 MODEL_ID = 'GPT-4' 
 MODEL_VERSION_ID = 'ad16eda6ac054796bf9f348ab6733c72'
 
-tool = AIPluginTool.from_plugin_url("http://localhost:8000/.well-known/ai-plugin.json")
+tool = AIPluginTool.from_plugin_url("https://mlb-stats-chatbot-production.up.railway.app//.well-known/ai-plugin.json")
 
 
 # Used to load the plugin
